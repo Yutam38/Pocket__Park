@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :parks, only: [:index, :new, :create] do
+  resources :parks, only: [:index, :new, :create, :show] do
     resources :timeslots, only: [:index, :new, :create]
   end
   root to: "pages#home"
