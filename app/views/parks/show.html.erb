@@ -2,8 +2,16 @@
 
 <%= @park.description %>
 
+<br>
 
 <% @timeslots.each do |timeslot| %>
 <%= timeslot.start_time %><br>
 <%= timeslot.end_time %>
 <% end %>
+<br>
+<%= image_tag @park.image %>
+<br>
+<div style="width: 50%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
