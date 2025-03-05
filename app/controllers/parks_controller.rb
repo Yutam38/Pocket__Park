@@ -5,7 +5,7 @@ class ParksController < ApplicationController
   end
 
   def show
-    @timeslots = @park.timeslots
+    @timeslots = @park.timeslots.order(:start_time)
   end
 
   # def new

@@ -2,8 +2,4 @@
 
 <%= @park.description %>
 
-
-<% @timeslots.each do |timeslot| %>
-<%= timeslot.start_time %><br>
-<%= timeslot.end_time %>
-<% end %>
+<%= render "timetable", timeslots: @timeslots %>
