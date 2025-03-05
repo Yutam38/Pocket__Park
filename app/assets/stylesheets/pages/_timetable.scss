@@ -1,0 +1,52 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+  max-width: 600px;
+  margin-left: 20px;
+}
+
+.div6 {
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.timeslot {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* 左: ボタン, 右: 時間 */
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.timeslot .time-details {
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.timeslot p {
+  margin: 0;
+}
+
+.btn {
+  justify-self: center;
+  width: 100px; /* ボタンサイズを統一 */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}

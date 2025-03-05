@@ -1,0 +1,17 @@
+<div class="parent">
+    <div class="div6">Available time</div>
+
+    <% if timeslots.any? %>
+        <% timeslots.each do |timeslot| %>
+            <div class="timeslot">
+                <button type="button" class="btn btn-primary">Book now</button>
+                <div class="time-details">
+                    <p><%= timeslot.start_time.strftime("%H:%M") %> ~ </p>
+                    <p><%= timeslot.end_time.strftime("%H:%M") %></p>
+                </div>
+            </div>
+        <% end %>
+    <% else %>
+        <p>No available time slots.</p>
+    <% end %>
+</div>

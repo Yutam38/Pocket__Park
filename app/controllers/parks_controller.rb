@@ -14,7 +14,7 @@ class ParksController < ApplicationController
 
 
   def show
-    @timeslots = @park.timeslots
+    @timeslots = @park.timeslots.order(:start_time)
     @markers = [{
       lat: @park.latitude,
       lng: @park.longitude,

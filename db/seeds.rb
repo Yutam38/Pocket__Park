@@ -28,16 +28,19 @@ parks = parks_data.map do |data|
   )
 end
 
-puts "Seeding timeslots..."
-start_time = Time.now.change(hour: 15, min: 0, sec: 0)
-end_time = start_time + 2.hours
+# puts "Seeding timeslots..."
+# start_time = Time.now.change(hour: 15, min: 0, sec: 0)
+# end_time = start_time + 2.hours
+
 
 parks.each do |park|
-  Timeslot.create!(
-    start_time: start_time,
-    end_time: end_time,
-    park: park
-  )
+  [8, 10, 12, 14, 16, 18].each do |hour|
+    Timeslot.find_or_create_by!(
+      start_time: DateTime.current.change(hour: hour, min: 0, sec: 0),
+      end_time: DateTime.current.change(hour: hour + 2, min: 0, sec: 0),
+      park: park
+    )
+  end
 end
 
 puts "Seeding completed!"
