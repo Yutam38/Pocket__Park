@@ -7,7 +7,7 @@ Geocoder.configure(
   # use_https: false,           # use HTTPS for lookup requests? (if supported)
   # http_proxy: nil,            # HTTP proxy server (user:pass@host:port)
   # https_proxy: nil,           # HTTPS proxy server (user:pass@host:port)
-  api_key: ENV['pk.eyJ1IjoiczAwajFuazFtIiwiYSI6ImNtNnl0NmJtazEydGYya3FxZjFycnRkcm8ifQ.U_kNL_Voof2S-8v6Nq4MPA'], # API key for geocoding service
+  api_key: ENV['MAPBOX_API_KEY'], # API key for geocoding service
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #del)
 
   # Exceptions that should not be rescued by default
