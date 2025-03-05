@@ -1,34 +1,33 @@
 <nav class="navbar bg-light sticky-top">
   <div class="container d-flex justify-content-between align-items-center">
     <a class="navbar-brand" href="/" title="HomePage">
-      <img src="images/ფოტო.png" class="logo d-none d-md-block" alt="Pocket Park logo" />
-      <img src="images/ფოტო-small.png" class="logo d-block d-md-none" alt="Pocket Park logo (small version)" />
+      <%= image_tag "logo.png", alt: "Pocket Park logo", width: "90px"%>
     </a>
 
-    <ul class="d-flex list-unstyled mb-0">
+    <ul class="d-flex list-unstyled mb-0 flex-wrap gap-2">
       <% if user_signed_in? %>
-        <li class="mx-3">
+        <li class="mx flex-grow-1">
           <%= link_to "Parks", parks_path, class: "main-button text-decoration-none text-dark", title: "Parks homepage" %>
         </li>
 
-        <li class="mx-3">
-          <%= link_to "💟", "/about.html", class: "main-button text-decoration-none", title: "Favorited items" %>
+        <li class="mx flex-grow-1">
+          <%= link_to "💟", "/about.html", class: "main-button text-decoration-none", title: "Favorited parks" %>
         </li>
 
         <!-- to  show a user profile or dashboard link -->
-        <li class="mx-3">
-          <%= link_to "My Profile", parks_path, class: "main-button text-decoration-none", title: "Profile Page" %>
+        <li class="mx flex-grow-1">
+          <%= link_to "My Profile", parks_path(current_user), class: "main-button text-decoration-none", title: "Profile Page" %>
         </li>
 
-        <li class="mx-3">
-          <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "main-button text-decoration-none", title: "Log out" %>
+        <li class="mx flex-grow-1">
+          <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "main-button text-decoration-none", title: "Log out from your account" %>
         </li>
       <% else %>
-        <li class="mx-3">
+        <li class="mx flex-grow-1">
           <%= link_to "Log In", new_user_session_path, class: "main-button text-decoration-none", title: "Log into your account" %>
         </li>
 
-        <li class="mx-3">
+        <li class="mx flex-grow-1">
           <%= link_to "Sign Up", new_user_registration_path, class: "main-button text-decoration-none", title: "Create a new account" %>
         </li>
       <% end %>

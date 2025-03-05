@@ -1,3 +1,6 @@
+$main-gradient: linear-gradient(to right, #b2f7b2, #e0f7e0);
+$button-green: #34D399;
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -11,21 +14,60 @@
 @import "components/index";
 @import "pages/index";
 
+body{
+  background: $main-gradient;
 
-.main-button{
-  text-decoration: none;
-  color: #000;
-  background-color:  #34D399;
-  border-radius: 50px;
-  padding: 10px 20px;
-}
+  .navbar{
+    background: $main-gradient;
+    }
 
-.main-button:hover {
-  background-color: #52eeb8;
-  border: 2px solid #34D399;
-}
+  .search{
+    background: $main-gradient;
+    border: 2px solid $button-green;
+  }
 
-.search-engine{
-  margin-top: 50px;
-  
+  .main-button{
+    text-decoration: none;
+    color: #000;
+    background-color: $button-green;
+    border-radius: 50px;
+    padding: 10px 20px;
+
+
+    &:hover {
+      background-color: #52eeb8;
+      border: 2px solid $button-green;
+    }
+  }
+
+  .search-engine{
+    margin-top: 50px;
+  }
+
+  .social-links{
+  gap: 50px;
+  margin-top: 40px;
+  font-size: 30px;
+
+  i{
+    color: #000;
+  }
+
+  }
+
+  .authors {
+    text-decoration: none;
+    gap: 40px;
+
+      a{
+      text-decoration: none;
+      color: #000;
+      }
+  }
+
+  .part-row {
+    background: linear-gradient(135deg, #1D6F3D, #A7F3D0);
+    text-align: center;
+    padding: 20px;
+  }
 }

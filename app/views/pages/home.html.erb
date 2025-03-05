@@ -2,22 +2,21 @@
 
   <div class="search-engine container-fluid d-flex justify-content-center align-items-center">
     <%= form_with(url: parks_path, method: :get, class: "d-flex w-50") do %>
-    <%= text_field_tag :search, "type location", class: "form-control me-2", placeholder: "Search", aria: { label: "Search" } %>
+    <%= text_field_tag :search, "type location", class: "form-control me-2 search", placeholder: "Search", aria: { label: "Search" } %>
     <%= submit_tag "Search 🔍", class: "btn main-button" %>
     <% end %>
   </div>
 
+  <div class="row  g-4">
 
-  <div class="row">
-
-    <div class="col-lg-6 mt-5">
-    <%= image_tag "Panorama_Berlin.jpg", class: "img-fluid d-none d-md-block ", alt: "berlin park photo" %>
-    </div>
+  <div class="col-lg-6 mt-5 rounded-5 d-flex justify-content-center">
+    <%= image_tag "Panorama_Berlin.jpg", class: "img-fluid d-none d-md-block rounded-5", alt: "berlin park photo" %>
+  </div>
 
 
-    <div class="col-lg-6 mt-5">
+  <div class="part-row col-lg-6 mt-5 rounded-5 d-flex justify-content-center">
 
-      <div class="content">
+    <div class="content">
 
         <h1>Welcome to Pocket Park</h1>
           <p class="mb-4">
@@ -38,13 +37,11 @@
             ბლა ბლა ბლა ბლა ბლა ბლა ბლა<br /><br />
           </p>
 
-            <div class="text-center">
+            <div class="text-center mb-4">
             <%= link_to "Explore Berlin's Parks", parks_path, class: "main-button text-decoration-none", title: "Parks homepage" %>
             </div>
 
-      </div>
-
     </div>
-
+  </div>
   </div>
 </div>
