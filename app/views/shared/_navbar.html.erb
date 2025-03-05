@@ -7,16 +7,16 @@
     <ul class="d-flex list-unstyled mb-0 flex-wrap gap-2">
       <% if user_signed_in? %>
         <li class="mx flex-grow-1">
-          <%= link_to "Parks", parks_path, class: "main-button text-decoration-none text-dark", title: "Parks homepage" %>
+          <%= link_to "Parks", parks_path, class: "main-button text-decoration-none #{'active' if current_page?(parks_path)}", title: "Parks homepage" %>
         </li>
 
         <li class="mx flex-grow-1">
-          <%= link_to "💟", "/about.html", class: "main-button text-decoration-none", title: "Favorited parks" %>
+          <%= link_to "💟", "/about.html", class: "main-button text-decoration-none #{'active' if current_page?('/about.html')}", title: "Favorited parks" %>
         </li>
 
         <!-- to  show a user profile or dashboard link -->
         <li class="mx flex-grow-1">
-          <%= link_to "My Profile", parks_path(current_user), class: "main-button text-decoration-none", title: "Profile Page" %>
+          <%= link_to "My bookings", bookings_path, class: "main-button text-decoration-none #{'active' if current_page?(parks_path(current_user))}", title: "Bookings Page" %>
         </li>
 
         <li class="mx flex-grow-1">
@@ -24,11 +24,11 @@
         </li>
       <% else %>
         <li class="mx flex-grow-1">
-          <%= link_to "Log In", new_user_session_path, class: "main-button text-decoration-none", title: "Log into your account" %>
+          <%= link_to "Log In", new_user_session_path, class: "main-button text-decoration-none #{'active' if current_page?(new_user_session_path)}", title: "Log into your account" %>
         </li>
 
         <li class="mx flex-grow-1">
-          <%= link_to "Sign Up", new_user_registration_path, class: "main-button text-decoration-none", title: "Create a new account" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "main-button text-decoration-none #{'active' if current_page?(new_user_registration_path)}", title: "Create a new account" %>
         </li>
       <% end %>
     </ul>
