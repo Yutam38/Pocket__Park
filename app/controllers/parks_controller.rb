@@ -1,10 +1,10 @@
 class ParksController < ApplicationController
+  before_action :set_park, only: %i[show]
   def index
     @parks = Park.all
   end
 
   def show
-    @park = Park.find(params[:id])
     @timeslots = @park.timeslots
   end
 
@@ -21,7 +21,11 @@ class ParksController < ApplicationController
   #   end
   # end
 
-  # private
+  private
+
+  def set_park
+    @park = Park.find(params[:id])
+  end
 
   # def park_params
   #   params.require(:park).permit(:name, :description, :longitude, :latitude)

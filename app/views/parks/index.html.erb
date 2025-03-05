@@ -1,2 +1,7 @@
-<h1>Parks#index</h1>
-<p>Find me in app/views/parks/index.html.erb</p>
+<h1>List of parks</h1>
+
+<div class="parkCard">
+<% @parks.each do |park| %>
+  <%= render partial: "parks/park", locals: { park: park } %>
+<% end %>
+</div>
