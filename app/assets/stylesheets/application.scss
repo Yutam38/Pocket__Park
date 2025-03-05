@@ -38,6 +38,14 @@ body{
       background-color: #52eeb8;
       border: 2px solid $button-green;
     }
+
+    &.active {
+    background-color: #d5f6e8;
+    color: rgb(5, 71, 37);
+    border: 2px solid darken($button-green, 15%);
+    font-weight: bold;
+  }
+
   }
 
   .search-engine{
