@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :parks, only: %i[index new create show]
+  resources :parks, only: %i[index new create show] do
+    resources :favourites, only: %i[create]
+  end
+  resources :favourites, only: %i[index destroy]
 
   resources :timeslots, only: %i[] do
     resources :bookings, only: %i[create]
