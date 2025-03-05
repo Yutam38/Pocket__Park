@@ -1,2 +1,11 @@
-<h1>Parks#index</h1>
-<p>Find me in app/views/parks/index.html.erb</p>
+<h1>List of parks</h1>
+
+<div class="parkCard">
+<% @parks.each do |park| %>
+  <%= render partial: "parks/park", locals: { park: park } %>
+<% end %>
+</div>
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

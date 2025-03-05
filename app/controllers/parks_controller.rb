@@ -1,11 +1,25 @@
 class ParksController < ApplicationController
-  def index
-    @parks = Park.all
-  end
+  before_action :set_park, only: %i[show]
+    def index
+      @parks = Park.all
+      # The `geocoded` scope filters only flats with coordinates
+      @markers = @parks.geocoded.map do |park|
+        {
+          lat: park.latitude,
+          lng: park.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {park: park})
+        }
+      end
+    end
+
 
   def show
-    @park = Park.find(params[:id])
     @timeslots = @park.timeslots
+    @markers = [{
+      lat: @park.latitude,
+      lng: @park.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {park: @park})
+    }]
   end
 
   # def new
@@ -21,7 +35,11 @@ class ParksController < ApplicationController
   #   end
   # end
 
-  # private
+  private
+
+  def set_park
+    @park = Park.find(params[:id])
+  end
 
   # def park_params
   #   params.require(:park).permit(:name, :description, :longitude, :latitude)

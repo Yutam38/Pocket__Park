@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_05_111718) do
+
+ActiveRecord::Schema[7.1].define(version: 2025_03_05_141743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +24,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_111718) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "park_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["park_id"], name: "index_favourites_on_park_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
   create_table "parks", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -31,6 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_111718) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "address"
+    t.string "image"
   end
 
   create_table "timeslots", force: :cascade do |t|
@@ -56,5 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_05_111718) do
 
   add_foreign_key "bookings", "timeslots"
   add_foreign_key "bookings", "users"
+  add_foreign_key "favourites", "parks"
+  add_foreign_key "favourites", "users"
   add_foreign_key "timeslots", "parks"
 end
