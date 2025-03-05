@@ -1,0 +1,10 @@
+<h1>Your Favourite Parks</h1>
+<ul>
+  <% @favourites.each do |favourite| %>
+    <li>
+      <%= favourite.park.name %>%
+      <%= link_to 'Remove from Favourites', favourite_path(favourite), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Back to Parks', parks_path %>
