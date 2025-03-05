@@ -1,2 +1,7 @@
 <h1>Parks#show</h1>
 <p>Find me in app/views/parks/new.html.erb</p>
+
+<% @timeslots.each do |timeslot| %>
+<%= timeslot.start_time %><br>
+<%= timeslot.end_time %>
+<% end %>
