@@ -1,22 +1,24 @@
-<nav class="navbar bg-light sticky-top">
+<nav class="navbar bg-light sticky-top line">
   <div class="container d-flex justify-content-between align-items-center">
     <a class="navbar-brand" href="/" title="HomePage">
-      <%= image_tag "logo.png", alt: "Pocket Park logo", width: "90px"%>
+      <%= image_tag "logo.png", alt: "Pocket Park logo", width: "95px"%>
     </a>
 
     <ul class="d-flex list-unstyled mb-0 flex-wrap gap-2">
       <% if user_signed_in? %>
         <li class="mx flex-grow-1">
-          <%= link_to "Parks", parks_path, class: "main-button text-decoration-none #{'active' if current_page?(parks_path)}", title: "Parks homepage" %>
+          <%= link_to "Parks", parks_path, class: "pages text-decoration-none #{'active' if current_page?(parks_path)}", title: "Parks homepage" %>
         </li>
 
         <li class="mx flex-grow-1">
-          <%= link_to "💟", favourites_path, class: "main-button text-decoration-none #{'active' if current_page?('/about.html')}", title: "Favorited parks" %>
+          <%= link_to favourites_path, class: "pages text-decoration-none #{'active' if current_page?('/about.html')}", title: "Favorited parks" do %>
+          <i class="pages fa-regular fa-heart"></i>
+          <% end %>
         </li>
 
         <!-- to  show a user profile or dashboard link -->
         <li class="mx flex-grow-1">
-          <%= link_to "My bookings", bookings_path, class: "main-button text-decoration-none #{'active' if current_page?(parks_path(current_user))}", title: "Bookings Page" %>
+          <%= link_to "My bookings", bookings_path, class: "pages text-decoration-none #{'active' if current_page?(parks_path(current_user))}", title: "Bookings Page" %>
         </li>
 
         <li class="mx flex-grow-1">
