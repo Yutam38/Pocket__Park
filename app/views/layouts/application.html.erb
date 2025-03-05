@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PocketPark</title>
+  <title> Pocket-Park - LeWagon Project </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -19,21 +19,14 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@500;700&display=swap"
       rel="stylesheet"
     />
-
-  <link rel="stylesheet" href="/apps/assets/stylesheets/application.scss" />
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <title> Pocket-Park - LeWagon Project </title>
+
   <body>
-
-
 
   <%= render "shared/navbar" %>
   <%= yield %>
   <%= render "shared/footer" %>
- 
 
   </body>
 </html>
