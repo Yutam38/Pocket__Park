@@ -3,7 +3,7 @@
 <%= @park.description %>
 
 
-<%= render "timetable", timeslots: @timeslots %>
+<%= render "timetable", timeslots: @timeslots, park: @park  %>
 
 <br>
 <%= image_tag @park.image %>
