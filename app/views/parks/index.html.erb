@@ -7,17 +7,26 @@
 
 
 <div class="parkCard">
-<% @parks.each do |park| %>
-<% favourite = @favourites.find_by(park: park) %>
-<% if favourite.present?%>
-<form action="<%= favourite_path(favourite, redirection: "parks") %>" method="DELETE">
-<button type="submit"> 💖 </button></form>
-<% else %>
-<form action="<%= park_favourites_path(park) %>" method="POST">
-<button type="submit"> 🤍 </button></form>
-<% end %>
-  <%= render partial: "parks/park", locals: { park: park } %>
-<% end %>
+  <% @parks.each do |park| %>
+    <% favourite = @favourites.find_by(park: park) %>
+
+    <div class="park-wrapper">
+      <%= render partial: "parks/park", locals: { park: park } %>
+
+      <div class="heart-button">
+        <% if favourite.present? %>
+          <form action="<%= favourite_path(favourite, redirection: "parks") %>" method="POST">
+            <button type="submit"> 💖 </button>
+          </form>
+        <% else %>
+          <form action="<%= park_favourites_path(park) %>" method="POST">
+            <button type="submit"> 🖤 </button>
+          </form>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
 </div>
 
 
