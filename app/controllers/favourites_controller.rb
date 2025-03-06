@@ -12,6 +12,4 @@ class FavouritesController < ApplicationController
     else
       render @park, alert: "Something went wrong"
   end
-
-
 end
