@@ -10,7 +10,10 @@
   <div class="row  g-4">
 
   <div class="col-lg-6 mt-5 rounded-5 d-flex justify-content-center">
-    <%= image_tag "Panorama_Berlin.jpg", class: "img-fluid d-none d-md-block rounded-5", alt: "berlin park photo" %>
+    <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 
 

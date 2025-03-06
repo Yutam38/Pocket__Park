@@ -1,5 +1,6 @@
 class ParksController < ApplicationController
   before_action :set_park, only: %i[show]
+
     def index
       @parks = Park.all
       @favourites = current_user.favourites
@@ -13,15 +14,17 @@ class ParksController < ApplicationController
         }
       end
     end
-
+  end
 
   def show
     @timeslots = @park.timeslots.order(:start_time)
     @markers = [{
       lat: @park.latitude,
       lng: @park.longitude,
-      info_window_html: render_to_string(partial: "info_window", locals: {park: @park})
+      info_window_html: render_to_string(partial: "info_window", locals: { park: @park })
     }]
+      selected_date = Date.today
+    @timeslots = @park.timeslots.where("DATE(start_time AT TIME ZONE 'UTC') = ?", selected_date).order(:start_time)
   end
 
   # def new
