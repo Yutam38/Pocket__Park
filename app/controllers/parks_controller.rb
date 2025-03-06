@@ -14,7 +14,6 @@ class ParksController < ApplicationController
         }
       end
     end
-  end
 
   def show
     @timeslots = @park.timeslots.order(:start_time)
