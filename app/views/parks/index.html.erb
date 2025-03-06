@@ -15,14 +15,19 @@
 
       <div class="heart-button">
         <% if favourite.present? %>
-          <form action="<%= favourite_path(favourite, redirection: "parks") %>" method="POST">
-            <button type="submit"> 💖 </button>
-          </form>
-        <% else %>
-          <form action="<%= park_favourites_path(park) %>" method="POST">
-            <button type="submit"> 🖤 </button>
-          </form>
+        <%= link_to "💖",
+    favourite_path(favourite),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+        <%else %>
+          <%= simple_form_for [park, Favourite.new] do |f| %>
+            <%= f.submit "🖤"%>
+
+          <% end %>
+
         <% end %>
+
+
       </div>
     </div>
 
@@ -39,3 +44,4 @@
 </div>
 
 </div>
+<%= console %>
