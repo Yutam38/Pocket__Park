@@ -1,5 +1,7 @@
 <h1>MyBookings#index</h1>
 
 <% @bookings.each do |booking| %>
-  booking.timeslot.park.name
+  <p>
+    <%= booking.timeslot.park.name %>
+  </p>
 <% end %>
