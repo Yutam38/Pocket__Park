@@ -1,17 +1,26 @@
-<div class="parent">
+<div class="parent" data-controller="date-picker">
+  <div class="header">
     <div class="div6">Available time</div>
+    <div class="date-picker">
+      <button type="button" class="date-button btn btn-secondary" data-action="date-picker#changeDate" data-direction="-1">◀</button>
+      <span id="selected-date" data-date-picker-target="dateDisplay"><%= Date.today.strftime("%Y-%m-%d") %></span>
+      <button type="button" class="date-button btn btn-secondary" data-action="date-picker#changeDate" data-direction="1">▶</button>
+    </div>
+  </div>
 
+  <div class="timeslot-container d-grid gap-3" data-date-picker-target="timeslotContainer">
     <% if timeslots.any? %>
-        <% timeslots.each do |timeslot| %>
-            <div class="timeslot">
-                <button type="button" class="btn btn-primary">Book now</button>
-                <div class="time-details">
-                    <p><%= timeslot.start_time.strftime("%H:%M") %> ~ </p>
-                    <p><%= timeslot.end_time.strftime("%H:%M") %></p>
-                </div>
-            </div>
-        <% end %>
+      <% timeslots.each do |timeslot| %>
+        <div class="timeslot p-2 bg-light border" data-start-time="<%= timeslot.start_time.strftime("%H:%M") %>" data-end-time="<%= timeslot.end_time.strftime("%H:%M") %>">
+           <%= link_to "Book now", timeslot_bookings_path(timeslot), class: "btn btn-primary floating-button2" %>
+          <%# <button data-action="click->date-picker#bookNow" type="button" class="btn btn-primary" data-action="click->date-picker#bookNow">Book now</button> %>
+          <div class="time-details">
+            <p><%= timeslot.start_time.strftime("%H:%M") %> ~ <%= timeslot.end_time.strftime("%H:%M") %></p>
+          </div>
+        </div>
+      <% end %>
     <% else %>
-        <p>No available time slots.</p>
+      <p>No available time slots.</p>
     <% end %>
+  </div>
 </div>

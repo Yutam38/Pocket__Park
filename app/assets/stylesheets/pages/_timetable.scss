@@ -8,20 +8,45 @@
   margin-left: 20px;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.date-button {
+  width: 50px !important;
+  margin-left: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-button.btn.btn-secondary{
+  padding: 0px;
+}
+
 .div6 {
   font-weight: bold;
   text-align: left;
   padding: 10px;
   background-color: #f8f9fa;
   border-radius: 5px;
-  width: 100%;
 }
+
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
 
 .timeslot {
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   padding: 15px;
   border-radius: 5px;
   background-color: #fff;
@@ -35,6 +60,11 @@
   gap: 10px;
   font-size: 16px;
   font-weight: bold;
+}
+
+#selected-date {
+  min-width: 120px;
+  text-align: center;
 }
 
 .timeslot p {
