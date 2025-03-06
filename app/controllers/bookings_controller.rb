@@ -12,8 +12,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    booking = bookings.new
-    booking.save
+    @booking = Booking.create!(timeslot_id: params[:timeslot_id], user_id: current_user.id)
     redirect_to bookings_path
   end
 

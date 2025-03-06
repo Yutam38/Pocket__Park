@@ -22,7 +22,7 @@ class ParksController < ApplicationController
       lng: @park.longitude,
       info_window_html: render_to_string(partial: "info_window", locals: { park: @park })
     }]
-      selected_date = Date.today
+    selected_date = params[:date]
     @timeslots = @park.timeslots.where("DATE(start_time AT TIME ZONE 'UTC') = ?", selected_date).order(:start_time)
   end
 

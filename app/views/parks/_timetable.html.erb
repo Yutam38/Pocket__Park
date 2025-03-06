@@ -2,9 +2,20 @@
   <div class="header">
     <div class="div6">Available time</div>
     <div class="date-picker">
-      <button type="button" class="date-button btn btn-secondary" data-action="date-picker#changeDate" data-direction="-1">◀</button>
-      <span id="selected-date" data-date-picker-target="dateDisplay"><%= Date.today.strftime("%Y-%m-%d") %></span>
-      <button type="button" class="date-button btn btn-secondary" data-action="date-picker#changeDate" data-direction="1">▶</button>
+      <%# <button type="button" class="date-button btn btn-secondary" data-action="date-picker#changeDate" data-direction="-1">◀</button> %>
+       <% current_date = if params[:date].present? %>
+  <% Date.parse(params[:date]) %>
+<% elsif timeslots.any? %>
+  <% timeslots.first.start_time.to_date %>
+<% else %>
+  <% Date.today %>
+<% end %>
+            <%= link_to "◀", park_path(park, date: current_date - 1.day), class: "date-button btn btn-secondary" %>
+ <span id="selected-date" data-date-picker-target="dateDisplay">
+        <%= current_date.strftime("%Y-%m-%d") %>
+      </span>
+      <%# <button type="button" class="date-button btn btn-secondary" data-action="date-picker#changeDate" data-direction="1">▶</button> %>
+      <%= link_to "▶", park_path(park, date: current_date + 1.day), class: "date-button btn btn-secondary" %>
     </div>
   </div>
 
@@ -12,8 +23,9 @@
     <% if timeslots.any? %>
       <% timeslots.each do |timeslot| %>
         <div class="timeslot p-2 bg-light border" data-start-time="<%= timeslot.start_time.strftime("%H:%M") %>" data-end-time="<%= timeslot.end_time.strftime("%H:%M") %>">
-           <%= link_to "Book now", timeslot_bookings_path(timeslot), class: "btn btn-primary floating-button2" %>
-          <%# <button data-action="click->date-picker#bookNow" type="button" class="btn btn-primary" data-action="click->date-picker#bookNow">Book now</button> %>
+          <%= button_to "Book now", timeslot_bookings_path(timeslot),
+          data: {turbo_method: :post},
+          class: "btn btn-primary floating-button2" %>
           <div class="time-details">
             <p><%= timeslot.start_time.strftime("%H:%M") %> ~ <%= timeslot.end_time.strftime("%H:%M") %></p>
           </div>
