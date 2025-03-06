@@ -141,4 +141,28 @@ body{
     margin-top: 20px;
   }
 
+  .park-wrapper {
+    position: relative;
+    display: inline-block; /* Passt sich der Bildgröße an */
+}
+
+.heart-button {
+    position: absolute;
+    top: 10px; /* Abstand vom oberen Rand */
+    right: 10px; /* Abstand vom rechten Rand */
+    background: none;
+    border: none;
+}
+
+.heart-button button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.heart-button button:hover {
+    transform: scale(1.2); /* Vergrößert das Herz beim Hover */
+}
 }
