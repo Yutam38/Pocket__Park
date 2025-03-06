@@ -2,6 +2,8 @@ class ParksController < ApplicationController
   before_action :set_park, only: %i[show]
     def index
       @parks = Park.all
+      @favourites = current_user.favourites
+
       # The `geocoded` scope filters only flats with coordinates
       @markers = @parks.geocoded.map do |park|
         {

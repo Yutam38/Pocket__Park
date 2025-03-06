@@ -1,0 +1,11 @@
+<h1>Your Favourite Parks</h1>
+<ul>
+  <% @favourites.each do |favourite| %>
+    <li>
+      <%= favourite.park.name %>
+      <%= favourite.park.description %>
+      <%= link_to 'Remove from Favourites', favourite_path(favourite,  redirection: "favourites"), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Back to Parks', parks_path %>
