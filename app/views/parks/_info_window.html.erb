@@ -1,3 +1,4 @@
-<h2><%= park.name %></h2>
+<h2><%= link_to park.name, park_path(park), class: "text-decoration-none" %></h2>
 <p><%= park.address %></p>
+<p style="color: green;" color>Available</p>
 <%= image_tag park.image, width: "200", height: "150", class: "park-image rounded" %>
