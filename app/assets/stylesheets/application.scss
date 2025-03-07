@@ -19,6 +19,8 @@ $button-green: #34D399;
 
 body{
   background: $main-gradient;
+  height: 100vh;
+  width: 100vw;
 
   .navbar{
     background: $main-gradient;
@@ -128,6 +130,9 @@ body{
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+    height: 600px; /* Adjust as needed */
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .map-cards {
