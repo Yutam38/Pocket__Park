@@ -1,19 +1,19 @@
 class ParksController < ApplicationController
   before_action :set_park, only: %i[show]
 
-    def index
-      @parks = Park.all
-      @favourites = current_user.favourites
+  def index
+    @parks = Park.all
+    @favourites = current_user.favourites
 
       # The `geocoded` scope filters only flats with coordinates
-      @markers = @parks.geocoded.map do |park|
+    @markers = @parks.geocoded.map do |park|
         {
           lat: park.latitude,
           lng: park.longitude,
           info_window_html: render_to_string(partial: "info_window", locals: {park: park})
-        }
-      end
-    end
+      }
+          end
+  end
 
   def show
     @timeslots = @park.timeslots.order(:start_time)
