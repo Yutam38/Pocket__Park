@@ -1,5 +1,5 @@
 <div>
-<%= image_tag park.image, width: "300", height: "200", class: "park-image rounded", style: "object-fit: cover;" %>
+<img src="<%= park.image %>" width="300" height="200" class="park-image rounded" style="object-fit: cover;">
 <p>
 <strong><%= link_to park.name, park_path(park), class: "text-decoration-none", style: "color: black;" %></strong>
 </p>
