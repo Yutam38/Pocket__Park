@@ -101,7 +101,7 @@ body{
   }
 
   .part-row {
-    outline: 1px solid darken($button-green, 15%);
+    background: linear-gradient(135deg, #1D6F3D, #A7F3D0);
     text-align: left;
     letter-spacing: 10%;
     padding: 20px;
@@ -164,6 +164,14 @@ body{
     background: none;
     border: none;
     text-decoration: none;
+
+    .fav-button{
+      border: 2;
+      padding: 1px 6px;
+      background-color: #E5E5E5;
+      border: 1px solid #4F4F4F;
+      border-radius: 3px;
+    }
 
 
     a{
