@@ -1,13 +1,20 @@
-<h1>MyBookings#index</h1>
+<h1>My Bookings</h1>
 
 <% @bookings.each do |booking| %>
-  <p>
-    <%= booking.timeslot.park.name %>
-   <%= booking.timeslot.start_time.strftime("%H:%M") %> ~ <%= booking.timeslot.end_time.strftime("%H:%M") %>
-  </p>
+  <div class="booking-card d-flex justify-content-between align-items-center p-3 border rounded shadow-sm">
+    <div class="booking-info">
+      <strong class="park-name"><%= booking.timeslot.park.name %></strong><br>
+      <span class="booking-date"><%= booking.timeslot.start_time.strftime("%A, %B %d, %Y") %></span><br>
+      <span class="booking-time">
+        ⏰ <%= booking.timeslot.start_time.strftime("%H:%M") %> ~ <%= booking.timeslot.end_time.strftime("%H:%M") %>
+      </span>
+    </div>
 
-<%= button_to "Delete", booking_path(booking),
-          method: :delete,
-          data: { turbo_confirm: "Are you sure?" },
-          class: "btn btn-danger floating-button2" %>
+    <div class="delete-button">
+      <%= button_to "❌ Cancel", booking_path(booking),
+            method: :delete,
+            data: { turbo_confirm: "Are you sure?" },
+            class: "btn btn-outline-danger btn-sm" %>
+    </div>
+  </div>
 <% end %>
