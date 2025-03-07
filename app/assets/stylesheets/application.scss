@@ -24,6 +24,7 @@ body{
 
   .navbar{
     background: $main-gradient;
+    height: 80px;
     }
 
     .line{
@@ -100,7 +101,7 @@ body{
   }
 
   .part-row {
-    background: linear-gradient(135deg, #1D6F3D, #A7F3D0);
+    outline: 1px solid darken($button-green, 15%);
     text-align: left;
     letter-spacing: 10%;
     padding: 20px;
