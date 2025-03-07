@@ -188,3 +188,37 @@ body{
 }
 
 }
+
+
+.booking-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+}
+
+.park-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.booking-date {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff; /* Blue color for contrast */
+}
+
+.booking-time {
+  font-size: 14px;
+  color: #555;
+}
+
+.delete-button .btn {
+  font-size: 14px;
+  padding: 5px 10px;
+}
