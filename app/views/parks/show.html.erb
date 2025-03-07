@@ -6,7 +6,7 @@
 <%= render "timetable", timeslots: @timeslots, park: @park  %>
 
 <br>
-<%= image_tag @park.image %>
+<img src="<%= @park.image %>">
 <br>
 <div style="width: 50%; height: 600px;"
   data-controller="map"
