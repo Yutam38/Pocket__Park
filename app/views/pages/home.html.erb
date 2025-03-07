@@ -1,50 +1,47 @@
 <div class="container">
 
-  <div class="search-engine container-fluid d-flex justify-content-center align-items-center">
-    <%= form_with(url: parks_path, method: :get, class: "d-flex w-50") do %>
-    <%= text_field_tag :search, "type location", class: "form-control me-2 search", placeholder: "Search", aria: { label: "Search" } %>
-    <%= submit_tag "Search 🔍", class: "btn main-button" %>
-    <% end %>
-  </div>
 
-  <div class="row  g-4">
+    <h1 class="header container-fluid d-flex justify-content-center align-items-center">Welcome to Pocket Park</h1>
 
-  <div class="col-lg-6 mt-5 rounded-5 d-flex justify-content-center">
-    <div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
+
+    <div class="row  g-4">
+
+      <div class="col-lg-6 mt-5 rounded-5 d-flex justify-content-center">
+        <div style="width: 100%; height: 600px; border-radius:20px"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
 
 
   <div class="part-row col-lg-6 mt-5 rounded-5 d-flex justify-content-center">
 
     <div class="content">
-
-        <h1>Welcome to Pocket Park</h1>
           <p class="mb-4">
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა
-
-            <br /><br />
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა ბლა
-            ბლა ბლა ბლა ბლა ბლა ბლა ბლა<br /><br />
+            <h2> Pocket Park – Rent Your Perfect Park in Berlin</h2><br>
+            <br>
+            Discover Berlin’s green spaces like never before with Pocket Park, the ultimate app<br>for renting parks.
+            Whether you’re planning a picnic, a yoga session, or a private event,<br>
+            our app gives you access to an extensive selection of parks across the city.<br>
+            <br>
+            Our Features:
+            <br>
+            <br>
+            Explore All Parks –Get a complete overview of Berlin’s parks, including size, amenities, and availability.
+            Favourite Your Top Picks – Save your favourite parks for quick access later.
+            Interactive Map – Easily navigate through parks with our intuitive map view.
+            Seamless Booking – Rent your perfect park with just a few taps.
+            <br>
+            <br>
+            Find your ideal green space with Pocket Park and enjoy Berlin’s nature on your terms! <br><br>
           </p>
 
             <div class="text-center mb-4">
             <%= link_to "Explore Berlin's Parks", parks_path, class: "main-button text-decoration-none", title: "Parks homepage" %>
             </div>
 
+      </div>
     </div>
-  </div>
   </div>
 </div>

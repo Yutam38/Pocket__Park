@@ -14,8 +14,7 @@
           <% if favourite.present? %>
           <%= link_to "💖",
       favourite_path(favourite),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-    %>
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
           <%else %>
             <%= simple_form_for [park, Favourite.new] do |f| %>
               <%= f.submit "🖤"%>
@@ -26,9 +25,12 @@
     <% end %>
   </div>
 
-  <div style="width: 500px; height: 1200px; "
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
+      <div id="map">
+        <div style="width: 500px; height: 1200px"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
 </div>
