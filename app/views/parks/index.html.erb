@@ -14,7 +14,7 @@
           <% if favourite.present? %>
           <%= link_to "💖",
       favourite_path(favourite, redirection: "parks"),
-      data: {turbo_method: :delete}%>
+      data: {turbo_method: :delete}, class: "fav-button"%>
           <%else %>
             <%= simple_form_for [park, Favourite.new] do |f| %>
               <%= f.submit "🖤"%>
