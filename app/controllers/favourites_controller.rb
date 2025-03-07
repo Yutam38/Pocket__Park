@@ -16,9 +16,9 @@ class FavouritesController < ApplicationController
     @favourite = Favourite.find(params[:id])
     @favourite.destroy
     if params[:redirection] == "parks"
-    redirect_to parks_path, notice: "Removed"
+      redirect_to parks_path, notice: "Removed"
     else
-    redirect_to favourites_path
+      redirect_to favourites_path
     end
   end
 end
