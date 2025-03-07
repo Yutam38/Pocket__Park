@@ -23,9 +23,13 @@
     <% if timeslots.any? %>
       <% timeslots.each do |timeslot| %>
         <div class="timeslot p-2 bg-light border" data-start-time="<%= timeslot.start_time.strftime("%H:%M") %>" data-end-time="<%= timeslot.end_time.strftime("%H:%M") %>">
+        <% if Booking.where(timeslot: timeslot).any?%>
+        <%= button_to "Booked", "", class: "btn btn-primary floating-button2 disabled" %>
+        <% else %>
           <%= button_to "Book now", timeslot_bookings_path(timeslot),
           data: {turbo_method: :post},
           class: "btn btn-primary floating-button2" %>
+        <% end %>
           <div class="time-details">
             <p><%= timeslot.start_time.strftime("%H:%M") %> ~ <%= timeslot.end_time.strftime("%H:%M") %></p>
           </div>

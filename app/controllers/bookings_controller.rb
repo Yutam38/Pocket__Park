@@ -13,11 +13,19 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.create!(timeslot_id: params[:timeslot_id], user_id: current_user.id)
-    redirect_to bookings_path
+    redirect_to park_path(@booking.timeslot.park_id, date: @booking.timeslot.start_time.to_date)
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+
+  if @booking.user_id == current_user.id
     @booking.destroy
-    redirect_to bookings_path
+    flash[:notice] = "Booking canceled successfully."
+  else
+    flash[:alert] = "You are not authorized to cancel this booking."
+  end
+
+  redirect_to bookings_path
   end
 end
