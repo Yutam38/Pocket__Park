@@ -1,14 +1,28 @@
-<h1><%= @park.name %></h1>
+<!-- Centered Title -->
+<h1 class="text-center"><%= @park.name %></h1>
 
-<%= @park.description %>
+<!-- Description Centered -->
+<p class="text-center"><%= @park.description %></p>
 
+<!-- Two-column Layout: Timeslots & Map -->
+<div class="container">
+  <div class="row">
+    <!-- Left Column: Timeslots -->
+    <div class="col-md-6">
+      <%= render "timetable", timeslots: @timeslots, park: @park %>
+    </div>
 
-<%= render "timetable", timeslots: @timeslots, park: @park  %>
+    <!-- Right Column: Map -->
+    <div class="col-md-6">
+      <div style="width: 100%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+  </div>
+</div>
 
-<br>
-<img src="<%= @park.image %>">
-<br>
-<div style="width: 50%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<!-- Full-width Image -->
+<div class="container-fluid p-0">
+  <img src="<%= @park.image %>" class="img-fluid w-100 mt-4" style="object-fit: cover; height: auto;">
+</div>
