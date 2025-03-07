@@ -13,8 +13,8 @@
         <div class="heart-button">
           <% if favourite.present? %>
           <%= link_to "💖",
-      favourite_path(favourite),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+      favourite_path(favourite, redirection: "parks"),
+      data: {turbo_method: :delete}%>
           <%else %>
             <%= simple_form_for [park, Favourite.new] do |f| %>
               <%= f.submit "🖤"%>
