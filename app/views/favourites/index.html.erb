@@ -1,11 +1,26 @@
 <h1>Your Favourite Parks</h1>
-<ul>
+
+<ul class="list-unstyled">
   <% @favourites.each do |favourite| %>
-    <li>
-      <%= favourite.park.name %>
-      <%= favourite.park.description %>
-      <%= link_to 'Remove from Favourites', favourite_path(favourite,  redirection: "favourites"), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <li class="mb-3">
+      <div class="container-fluid">
+        <!-- Title & Remove Link in the Same Row -->
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <strong>
+            <%= link_to favourite.park.name, park_path(favourite.park), class: "text-decoration-none" %>
+          </strong>
+          <%= link_to 'Remove 🗑️', favourite_path(favourite, redirection: "favourites"), class: "text-decoration-none ",
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+
+        <!-- Full-width Park Image -->
+        <img src="<%= favourite.park.image %>" class="park-image rounded d-block w-100" height="400" style="object-fit: cover; object-position: center;">
+
+        <!-- Description -->
+        <p class="mt-2"><%= favourite.park.description %></p>
+      </div>
     </li>
   <% end %>
 </ul>
+
 <%= link_to 'Back to Parks', parks_path %>
