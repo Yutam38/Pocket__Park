@@ -1,5 +1,6 @@
 class Favourite < ApplicationRecord
   belongs_to :user
-  belongs_to :park
+  belongs_to :park, dependent: :destroy
+
   validates :user_id, uniqueness: { scope: :park_id }
 end
